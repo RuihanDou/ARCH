@@ -111,12 +111,17 @@ def get_train_data(input_file):
             train_data += [(userid, zuhe[0], zuhe[1]) for zuhe in pos_dict[userid]][:data_num]
         else:
             continue
-        sorted_neg_list = sorted(neg_dict[userid], key=lambda element:element[1], reverse=True)[:data_num]
+        sorted_neg_list = sorted(neg_dict[userid], key=lambda element: element[1], reverse=True)[:data_num]
         train_data += [(userid, zuhe[0], 0) for zuhe in sorted_neg_list]
+        # if userid == '24':
+        #     print(len(pos_dict[userid]))
+        #     print(len(neg_dict[userid]))
+        #     print(sorted_neg_list)
     return train_data
 
 if __name__ == '__main__':
-    pass
+    # pass
+
     # item_dict = get_item_info("../data/movies.txt")
     # print(len(item_dict))
     # print(item_dict["1"])
@@ -125,5 +130,10 @@ if __name__ == '__main__':
     # score_dict = get_ave_score("../data/ratings.txt")
     # print(len(score_dict))
     # print(score_dict["31"])
+
+    train_data = get_train_data("../data/ratings.txt")
+    print(len(train_data))
+    print(train_data[-21:-1])
+
 
 
