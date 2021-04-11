@@ -70,3 +70,4 @@ def get_item_info(input_file):
 
 if __name__ == '__main__':
     g1 = get_graph_from_data("../data/ratings.txt")
+
